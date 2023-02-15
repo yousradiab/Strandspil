@@ -70,6 +70,7 @@ overflow: hidden;
 }
 
 #birdshit_container {
+    max-width: 100%;
   z-index: 1;
   border-width: 2px;
   border-color: black;
@@ -86,7 +87,7 @@ overflow: hidden;
     border-style: solid;
     position: relative;
     top: 20%;
-    right: 40%;
+    bottom: 10%;
 
 }
 
