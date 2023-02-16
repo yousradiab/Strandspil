@@ -1,97 +1,188 @@
+body {
+  margin: 0;
+}
 
 #screen {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 100%;
   aspect-ratio: 16/9;
-  width:100%;
+  width: 100%;
   background-color: red;
   align-items: center;
-  position: relative;
+  position: absolute;
 }
 
 #game {
-  
-grid-area: 1 / 1;
-background-color: blue;
-overflow: hidden;
+  grid-area: 1 / 1;
+  background-color: blue;
+  overflow: hidden;
   grid-row-start: 1;
   grid-column-start: 1;
   z-index: 2;
   height: 100%;
-  width: 100%;
-  border-width: 2px;
-  border-color: black;
+  display: grid;
+  grid-template-columns: 10% / 10%;
+  grid-template-rows: 100%;
 }
 
 #game_background {
-  background-image: url(https://img.freepik.com/free-vector/realistic-summer-background_52683-62823.jpg?w=900&t=st=1676459159~exp=1676459759~hmac=751d92998401c6d2501a980358c3b921d6de6d5df3876f9895d32502569939b7.jpg);
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  position: absolute;
+  grid-area: 1 / 1;
+  background-image: url(img/background.summer.jpg);
+  background-size: auto;
+  background-position: 50% 25%;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  min-width: 100vw;
+  /* background-size: cover; */
+  /* height: 1080px;
+  width: 1920px;
+  z-index: -1; */
+  /* position: absolute; */
 }
-
 
 #game_elements {
-    grid-area: 1 / 1;
-    position: relative;
-    overflow: hidden;
+  grid-area: 1 / 1;
+  /* position: absolute; */
+  overflow: hidden;
 }
-
 
 #bird_container {
   z-index: 1;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
   position: absolute;
-  width: 10%;
-  left: 70%;
+  top: 30%;
+  left: 20%;
+}
+
+#bird_container img {
+  width: 55%;
 }
 
 #bird_container2 {
   z-index: 1;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
+  max-width: fit-content;
   position: absolute;
-  left: 50%;
+  left: 75%;
+  top: 35%
+}
+
+#bird_container2 img {
+  width: 35%;
 }
 
 #bird_container3 {
   z-index: 1;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
   position: absolute;
-  left: 30%;
+  top: auto;
+  left: 50%;
+}
+
+#bird_container3 img {
+  width: 35%;
 }
 
 #birdshit_container {
-    max-width: 100%;
+  max-width: 100%;
   z-index: 1;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
   position: absolute;
-  left: 25%;
   top: 25%;
+  right: 30%;
 }
 
-#kids_container {
-    z-index: 1;
-    border-width: 2px;
-    border-color: black;
-    border-style: solid;
-    position: relative;
-    top: 20%;
-    bottom: 10%;
+#birdshit_container img {
+  width: 10%;
+}
 
+#kid1_container {
+  z-index: 1;
+  position: absolute;
+  bottom: 0%;
+  right: -15%;
+}
+
+#kid1_container img {
+  width: 45%;
+}
+
+#kid2_container {
+  z-index: 1;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+}
+
+#kid2_container img {
+  width: 45%;
+}
+
+#kid3_container {
+  z-index: 1;
+  position: absolute;
+  bottom: 0%;
+  right: 60%;
+}
+
+#kid3_container img {
+  width: 45%;
+}
+
+
+#heart_container {
+  z-index: 2;
+  position: absolute;
+  top:5%;
+  right: -10%;
+}
+
+#heart_container img {
+  width: 15%;
+}
+
+#heart_container2 {
+  z-index: 2;
+  position: absolute;
+  top:5%;
+  right: -5%;
+}
+
+#heart_container2 img {
+  width: 15%;
+}
+
+#heart_container3 {
+  z-index: 2;
+  position: absolute;
+  top:5%;
+  right: 0%;
+}
+#heart_container3 img {
+  width: 15%;
+}
+
+#timeboard_container img {
+  width: 20%;
+}
+
+
+#timeboard_container {
+  z-index: 2;
+  position:absolute;
+}
+
+#scoreboard_container {
+  z-index: 2;
+  position: absolute;
+  top: 2%;
+  left:50%;
+}
+
+#scoreboard_container img{
+  width: 15%;
+}
 }
 
 #start {
+  grid-area: 1 / 1;
   background-color: cornflowerblue;
   text-align: center;
   grid-row-start: 1;
@@ -110,6 +201,7 @@ overflow: hidden;
 } */
 
 #game_over {
+  grid-area: 1 / 1;
   background-color: green;
   text-align: center;
   grid-row-start: 1;
@@ -120,6 +212,7 @@ overflow: hidden;
 }
 
 #level_complete {
+  grid-area: 1 / 1;
   background-color: gold;
   text-align: center;
   grid-row-start: 1;
@@ -130,8 +223,6 @@ overflow: hidden;
   border-width: 5px;
   border-color: black;
 }
-
-
 
 @media screen and (max-width: 600px) {
   #game_elements_helicopter img,

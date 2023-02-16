@@ -6,34 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>beach birds</title>
     <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="animationer.css">
 </head>
 
 <body>
 
     <div id="screen">
         <div id="game">
-            <div id="game_background" <a href="https://labs.openai.com/s/jimqyYDy6XL12NFGkl6zRAzH"img src="https://labs.openai.com/s/jimqyYDy6XL12NFGkl6zRAzH"></a>
-
-            </div>
+            <div id="game_background"></div>
         
             <div id="game_elements">
-                <div id="bird_container">
-                    <img id="seagul-removebg-preview" src="https://o.remove.bg/downloads/96a3b687-6185-432c-bb7a-cdd01c53415d/seagul-removebg-preview-removebg-preview.png">
+                <div id="bird_container" class="falling">
+                    <img id="seagul1" src="img/seagul-removebg-preview.png" alt="seagul">
                 </div>
-                <div id="bird_container2">
-                    <img id="gladmåge.png" src="https://o.remove.bg/downloads/d6d7f208-2c84-4b4e-914c-74aa1cf65614/Seagull-removebg-preview.png">
+                <div id="bird_container2" class="falling">
+                    <img id="seagul2" src="img/gladmåge.png" alt="seagul">
                 </div>
-                <div id="bird_container3">
-                    <img id="surmåge" src="https://o.remove.bg/downloads/bc7a4815-a035-435d-a7ed-2a2c8713cead/angry_seagull-removebg-preview.png">
+                <div id="bird_container3" class="falling">
+                    <img id="surmåge" src="img/angry_seagull-removebg-preview.png" alt="surmåge">
                 </div>
 
                 <div id="birdshit_container">
-                    <img id="birdshit" src="https://freesvg.org/img/FliesOnTurd.png">
+                    <img id="birdshit" src="img/bird.shit.png" alt="birdshit">
                     </div>
-                <div id="kids_container">
-                    <img id="nydreng1.png" src="https://o.remove.bg/downloads/2fc1a7bb-0fea-418d-931c-e4766586b44f/nydreng1-removebg-preview.png">
-                    <img id="nydreng2-removebg-preview-removebg-preview" src="https://o.remove.bg/downloads/77f7d267-80b4-4fcb-bb74-bd4a83ec8280/Nydreng2-removebg-preview-removebg-preview.png">
-                    <img id="nydreng3.png" src="https://o.remove.bg/downloads/d069009c-d0a8-4715-a4b8-7cc062bc8bc9/nydreng3-removebg-preview.png">
+                <div id="kid1_container" class="bouncing">
+                    <img id="dreng1" src="img/nydreng1.png" alt="dreng der leger">
+                </div>
+                <div id="kid2_container" class="bouncing">
+                    <img id="dreng2" src="img/Nydreng2-removebg-preview.png" alt="dreng der leger">
+                    </div>
+                <div id="kid3_container" class="bouncing">
+                    <img id="nydreng3.png" src="img/nydreng3.png" alt="dreng der leger">
+                    </div>
                     </div>
                 </div>
 
@@ -42,10 +46,26 @@
     </div>
 
             <div id="game_foreground"> 
-                <img id="playing" src="https://o.remove.bg/downloads/d9b4fb5d-aedd-4b8d-8572-e9b1c23fa454/playing.on.the.beach-removebg-preview.png">
             </div>
 
-            <div id="game_u1">
+            <div id="game_ui">
+                <div id="heart_container" class="pulse">
+                    <img id="heart1" src="img/heart.png">
+                </div>
+                <div id="heart_container2" class="pulse">
+                    <img id="heart2" src="img/heart.png">
+                </div>
+            <div id="heart_container3" class="pulse">
+                <img id="heart3" src="img/heart.png">
+                </div>
+
+            <div id="timeboard_container" class="glow">
+                <img id="hourglass" src="img/hourglass.png">
+            </div>
+
+            <div id="scoreboard_container" class="glow">
+                <img id="scoreboard" src="img/scoreboard.png">
+            </div>
 
             </div>
         </div>
