@@ -82,17 +82,37 @@ body {
 }
 
 #birdshit_container {
-  max-width: 100%;
   z-index: 1;
   position: absolute;
-  top: 25%;
-  right: 30%;
+  top: 5%;
+  right: 15%;
 }
 
 #birdshit_container img {
   width: 10%;
 }
 
+#birdshit_container1 {
+  max-width: 100%;
+  z-index: 1;
+  position: absolute;
+  top: 5%;
+  right: 50%;
+}
+
+#birdshit_container1 img {
+  width: 10%;
+}
+#birdshit_container2 {
+  z-index: 1;
+  position: absolute;
+  top: 5%;
+  left: 77%;
+}
+
+#birdshit_container2 img {
+  width: 15%;
+}
 #kid1_container {
   z-index: 1;
   position: absolute;
