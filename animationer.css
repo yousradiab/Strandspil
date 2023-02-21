@@ -1,7 +1,7 @@
 .falling {
   animation-name: falling;
   animation-duration: 4s;
-  animation-timing-function: linear;
+  animation-timing-function:ease-in-out;
   animation-iteration-count: infinite;
 }
 
@@ -83,7 +83,7 @@
     transform: translate(0, 140%);
   }
 } */
-.rotation2 {
+/* .rotation2 {
     animation-name: rotation2;
     animation-duration: 10s;
     animation-timing-function: linear;
@@ -97,4 +97,4 @@
     }  100% {
         transform: rotate(360deg) translate(-45%);
         
-    } }
+    } } */
