@@ -4,24 +4,19 @@ body {
   background-size: 100% 100%;
 }
 
+h2 {
+    font-size: 4em;
+}
 #screen {
   display: grid;
   grid-template: 100% / 100%;
   aspect-ratio: 16/9;
   width: 100%;
-  background-color: red;
-  /* align-items: center; */
-  position: absolute;
 }
 
 #game {
-  /* grid-area: 1 / 1; */
   background-color: blue;
-  overflow: hidden;
-  /* grid-row-start: 1;
-  grid-column-start: 1; */
-  /* z-index: 2;
-  height: 100%; */
+
   display: grid;
   grid-template-columns: 10% / 10%;
   grid-template-rows: 100%;
@@ -31,24 +26,15 @@ body {
   grid-area: 1 / 1;
   background-image: url(img/background.summer.png);
   background-repeat: no-repeat;
-  /* background-size: auto;
-  background-position: 50% 25%;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  min-width: 100vw; */
   background-size: cover;
   background-attachment: fixed;
-  
-  /* height: 1080px;
-  width: 1920px;
-  z-index: -1; */
-  /* position: absolute; */
+
 }
 
 #game_elements {
   grid-area: 1 / 1;
-  /* position: absolute; */
   overflow: hidden;
+  position: relative;
 }
 
 #bird_container {
@@ -189,76 +175,56 @@ body {
 #timeboard_container {
   z-index: 2;
   position:absolute;
+  top:0%
 }
 
 #scoreboard_container {
-  z-index: 2;
   position: absolute;
   left:10%;
   display: grid;
   grid-area: 1/1;
+  top:0%
 }
 
 #scoreboard_container img{
   width: 15%;
-  z-index: 1;
-  grid-column-start: 1;
-  grid-column-end: 2;
+
+
 }
 
 
-span#coin_count {
-  z-index: 2;
- grid-column-start: 1;
-  grid-column-end: 2;    
-}
-
-
-
-
-#start {
-  grid-area: 1 / 1;
-  background-color: cornflowerblue;
-  text-align: center;
-  grid-row-start: 1;
-  grid-column-start: 1;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-}
-
-/* #game_foregroud {
-    border-width: 2px;
-    border-color: black;
-    border-style: solid;
+#point_count {
     position: absolute;
-    left; 50%:
-} */
+    top:45px;
+    left:40px;
+}
+
+
 
 #game_over {
-  grid-area: 1 / 1;
-  background-color: green;
-  text-align: center;
-  grid-row-start: 1;
-  grid-column-start: 1;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
+    grid-area: 1 /1;
+    z-index: 999;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-image: linear-gradient(150deg, #c90303 0%, #790909 100%);
+    color: #ffffff;
 }
 
 #level_complete {
-  grid-area: 1 / 1;
-  background-color: gold;
-  text-align: center;
-  grid-row-start: 1;
-  grid-column-start: 1;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  border-width: 5px;
-  border-color: black;
+    grid-area: 1 /1;
+    z-index: 999;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%);
+    color: #ffffff;
 }
 
-
-
+.hidden,
+#game_over.hidden,
+#level_complete.hidden 
+ {
+    display: none;
+}
 

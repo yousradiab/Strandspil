@@ -8,6 +8,7 @@ let points = 0;
 function start() {
   console.log("Javascript kører!");
 
+
   document.querySelector("#hourglass").classList.add("move_up");
   document.querySelector("#kid1_container").classList.add("moveright");
     document.querySelector("#kid2_container").classList.add("moveright");
@@ -43,6 +44,10 @@ function start() {
   document
     .querySelector("#kid3_container")
     .addEventListener("click", clickKid3);
+    document
+      .querySelector("#timeboard_container")
+      .addEventListener("animationend", gameOver);
+
 }
 
 function clickMåge() {
@@ -161,8 +166,14 @@ function clickKid() {
 function decrementLives() {
   console.log("decrementLives");
   console.log(lives);
-  displayDecrementedLives();
-  lives--;
+  
+
+  if (lives <=1) {
+  gameOver(); }
+else {
+    displayDecrementedLives();
+}
+lives--; 
 }
 
 function displayDecrementedLives() {
@@ -173,6 +184,9 @@ function displayDecrementedLives() {
   document
     .querySelector("#heart_container" + lives)
     .classList.add("broken_heart");
+
+
+    
 }
 function clickKid2() {
   console.log("Click kid2");
@@ -205,12 +219,17 @@ function incrementPointsShit() {
   (points+= 10);
   console.log(points);
   displayPoints();
+
 }
 
 
 function displayPoints () {
     console.log("displayPoints");
-    document.querySelector("#coin_count").textContent = points;
+    document.querySelector("#point_count").textContent = points;
+    
+    if (points >50 ) {
+        levelComplete();
+    }
 
 }
 
@@ -219,6 +238,7 @@ function incrementPointsSeagul() {
   points += 5;
   console.log(points);
   displayPoints();
+  
 }
 
 
@@ -394,4 +414,16 @@ function kidGone3() {
   document
     .querySelector("#kid3_container")
     .addEventListener("click", clickKid3);
+}
+
+function gameOver() {
+    console.log("Game over");
+    document.querySelector("#game_over").classList.remove("hidden");
+
+}
+
+function levelComplete () {
+    console.log("Level complete");
+        document.querySelector("#level_complete").classList.remove("hidden");
+
 }
