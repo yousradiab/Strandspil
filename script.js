@@ -11,7 +11,7 @@ function start() {
 
   document.querySelector("#hourglass").classList.add("move_up");
   document.querySelector("#kid1_container").classList.add("moveright");
-    document.querySelector("#kid2_container").classList.add("moveright");
+  document.querySelector("#kid2_container").classList.add("moveright");
   document.querySelector("#kid3_container").classList.add("moveright");
 
 
@@ -51,39 +51,39 @@ function start() {
 }
 
 function clickMåge() {
+
+  let måge = this;
   console.log("Click måge");
+  console.log(måge);  
+  console.log(this);
 
-  document
-    .querySelector("#bird_container")
-    .removeEventListener("click", clickMåge);
+  måge.removeEventListener("click", clickMåge);
 
-  document.querySelector("#bird_container").classList.add("paused");
+  måge.classList.add("paused");
 
   // sæt forsvind-animation på coin
-  document.querySelector("#seagul1").classList.add("zoom_in");
+måge.querySelector("img").classList.add("zoom_in");
 
-  document
-    .querySelector("#bird_container")
-    .addEventListener("animationend", birdGone);
+ måge.addEventListener("animationend", birdGone);
+
     incrementPointsSeagul();
 
 }
 
 function clickMåge2() {
+  let måge2 = this;
+
   console.log("Click måge2");
+  console.log(måge2);
+  console.log(this);
 
-  document
-    .querySelector("#bird_container2")
-    .removeEventListener("click", clickMåge2);
+ måge2.removeEventListener("click", clickMåge2);
 
-  document.querySelector("#bird_container2").classList.add("paused");
+måge2.classList.add("paused");
 
-  // sæt forsvind-animation på coin
-  document.querySelector("#seagul2").classList.add("zoom_in");
-
-  document
-    .querySelector("#bird_container2")
-    .addEventListener("animationend", birdGone2);
+  // sæt forsvmåge2ind-animation på coin
+  måge2.querySelector("img").classList.add("zoom_in");
+måge2.addEventListener("animationend", birdGone2);
 
     incrementPointsSeagul();
 }
