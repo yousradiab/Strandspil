@@ -5,7 +5,7 @@ body {
 }
 
 h2 {
-    font-size: 4em;
+  font-size: 4em;
 }
 #screen {
   display: grid;
@@ -28,7 +28,6 @@ h2 {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-
 }
 
 #game_elements {
@@ -53,7 +52,7 @@ h2 {
   max-width: fit-content;
   position: absolute;
   left: 75%;
-  top: 35%
+  top: 35%;
 }
 
 #bird_container2 img {
@@ -85,13 +84,12 @@ h2 {
 #birdshit_container2 {
   z-index: 1;
   position: absolute;
-   top: auto;
+  top: auto;
   left: 50%;
 }
 
 #birdshit_container2 img {
   width: 15%;
-
 }
 #kid1_container {
   z-index: 1;
@@ -126,11 +124,10 @@ h2 {
   width: 45%;
 }
 
-
 #heart_container1 {
   z-index: 2;
   position: absolute;
-  top:5%;
+  top: 5%;
   right: -10%;
 }
 
@@ -141,7 +138,7 @@ h2 {
 #heart_container2 {
   z-index: 2;
   position: absolute;
-  top:5%;
+  top: 5%;
   right: -5%;
 }
 
@@ -152,79 +149,74 @@ h2 {
 #heart_container3 {
   z-index: 2;
   position: absolute;
-  top:5%;
+  top: 5%;
   right: 0%;
 }
 #heart_container3 img {
   width: 15%;
 }
 
-
 .active_heart {
-   filter: drop-shadow(0 0 2px yellow);
+  filter: drop-shadow(0 0 2px yellow);
 }
 
 .broken_heart {
-    filter: grayscale(75%) blur(.5px);
+  filter: grayscale(75%) blur(0.5px);
 }
 #timeboard_container img {
   width: 25%;
 }
 
-
 #timeboard_container {
   z-index: 2;
-  position:absolute;
-  top:0%
+  position: absolute;
+  top: 0%;
 }
 
 #scoreboard_container {
+  /* z-index: 2; */
   position: absolute;
-  left:10%;
+  left: 10%;
   display: grid;
   grid-area: 1/1;
-  top:0%
+  top: 0%;
 }
 
-#scoreboard_container img{
+#scoreboard_container img {
   width: 15%;
-
-
 }
-
 
 #point_count {
-    position: absolute;
-    top:45px;
-    left:40px;
+  position: absolute;
+  top: 45px;
+  left: 40px;
 }
-
-
 
 #game_over {
-    grid-area: 1 /1;
-    z-index: 999;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    background-image: linear-gradient(150deg, #c90303 0%, #790909 100%);
-    color: #ffffff;
+  grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-image: linear-gradient(150deg, #c90303 0%, #790909 100%);
+  color: #ffffff;
 }
 
-#level_complete {
-    grid-area: 1 /1;
-    z-index: 999;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%);
-    color: #ffffff;
+#level_complete,
+#start {
+  grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%);
+  color: #ffffff;
 }
 
 .hidden,
 #game_over.hidden,
-#level_complete.hidden 
- {
-    display: none;
+#level_complete.hidden,
+#game.hidden,
+#start.hidden {
+  display: none;
 }
-

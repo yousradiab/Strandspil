@@ -1,19 +1,38 @@
 "use strict";
-window.addEventListener("load", start);
+window.addEventListener("load", ready);
 
 let lives = 3;
 
 let points = 0;
 
+function ready() {
+  console.log("JavaScript ready!");
+  document.querySelector("#btn_start").addEventListener("click", start);
+  document
+    .querySelector("#btn_go_to_start")
+    .addEventListener("click", showStartScreen);
+  document.querySelector("#btn_restart").addEventListener("click", start);
+}
+
+function showStartScreen() {
+  // fjern hidden fra startskærm og tilføj til game over og level complete
+  document.querySelector("#start").classList.remove("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+}
+
 function start() {
+  resetLives();
+  resetPoints();
+  showGameScreen();
   console.log("Javascript kører!");
 
+  document.querySelector("#start").classList.add("hidden");
 
   document.querySelector("#hourglass").classList.add("move_up");
   document.querySelector("#kid1_container").classList.add("moveright");
   document.querySelector("#kid2_container").classList.add("moveright");
   document.querySelector("#kid3_container").classList.add("moveright");
-
 
   document
     .querySelector("#bird_container")
@@ -44,17 +63,59 @@ function start() {
   document
     .querySelector("#kid3_container")
     .addEventListener("click", clickKid3);
-    document
-      .querySelector("#timeboard_container")
-      .addEventListener("animationend", gameOver);
+  document
+    .querySelector("#timeboard_container")
+    .addEventListener("animationend", gameOver);
+}
 
+// function startGame() {
+//     resetLives();
+//     resetPoints();
+//     showGameScreen();
+//     start();
+// // Start baggrundsmusik
+// ...
+// // start alle animationer
+// ...
+// // Registrer click
+// ...
+// // Registrer når bunden rammes
+// ...
+// }
+
+function resetLives() {
+  console.log("reset lives");
+  // sæt lives til 3
+  lives = 3;
+  //nulstil visning af liv (hjerte vi ser)
+  document.querySelector("#heart1").classList.remove("broken_heart");
+  document.querySelector("#heart2").classList.remove("broken_heart");
+  document.querySelector("#heart3").classList.remove("broken_heart");
+  document.querySelector("#heart1").classList.add("active_heart");
+  document.querySelector("#heart2").classList.add("active_heart");
+  document.querySelector("#heart3").classList.add("active_heart");
+}
+
+function showGameScreen() {
+  console.log("SHOW GAME");
+  // Skjul startskærm, game over og level complete
+  document.querySelector("#start").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+}
+
+function resetPoints() {
+  console.log("reset point");
+  // nulstil point
+  points = 0;
+  // nulstil vising af point
+  displayPoints();
 }
 
 function clickMåge() {
-
   let måge = this;
   console.log("Click måge");
-  console.log(måge);  
+  console.log(måge);
   console.log(this);
 
   måge.removeEventListener("click", clickMåge);
@@ -62,12 +123,11 @@ function clickMåge() {
   måge.classList.add("paused");
 
   // sæt forsvind-animation på coin
-måge.querySelector("img").classList.add("zoom_in");
+  måge.querySelector("img").classList.add("zoom_in");
 
- måge.addEventListener("animationend", birdGone);
+  måge.addEventListener("animationend", birdGone);
 
-    incrementPointsSeagul();
-
+  incrementPointsSeagul();
 }
 
 function clickMåge2() {
@@ -77,15 +137,15 @@ function clickMåge2() {
   console.log(måge2);
   console.log(this);
 
- måge2.removeEventListener("click", clickMåge2);
+  måge2.removeEventListener("click", clickMåge2);
 
-måge2.classList.add("paused");
+  måge2.classList.add("paused");
 
   // sæt forsvmåge2ind-animation på coin
   måge2.querySelector("img").classList.add("zoom_in");
-måge2.addEventListener("animationend", birdGone2);
+  måge2.addEventListener("animationend", birdGone2);
 
-    incrementPointsSeagul();
+  incrementPointsSeagul();
 }
 
 function clickMåge3() {
@@ -104,7 +164,7 @@ function clickMåge3() {
     .querySelector("#bird_container3")
     .addEventListener("animationend", birdGone3);
 
-    incrementPointsSeagul();
+  incrementPointsSeagul();
 }
 
 function clickShit() {
@@ -123,7 +183,7 @@ function clickShit() {
     .querySelector("#birdshit_container")
     .addEventListener("animationend", shitGone);
 
-    incrementPointsShit();
+  incrementPointsShit();
 }
 
 function clickShit2() {
@@ -141,7 +201,7 @@ function clickShit2() {
   document
     .querySelector("#birdshit_container2")
     .addEventListener("animationend", shitGone2);
-    incrementPointsShit();
+  incrementPointsShit();
 }
 
 function clickKid() {
@@ -166,14 +226,13 @@ function clickKid() {
 function decrementLives() {
   console.log("decrementLives");
   console.log(lives);
-  
 
-  if (lives <=1) {
-  gameOver(); }
-else {
+  if (lives <= 1) {
+    gameOver();
+  } else {
     displayDecrementedLives();
-}
-lives--; 
+  }
+  lives--;
 }
 
 function displayDecrementedLives() {
@@ -184,9 +243,6 @@ function displayDecrementedLives() {
   document
     .querySelector("#heart_container" + lives)
     .classList.add("broken_heart");
-
-
-    
 }
 function clickKid2() {
   console.log("Click kid2");
@@ -216,31 +272,25 @@ function clickKid3() {
   decrementLives();
 }
 function incrementPointsShit() {
-  (points+= 10);
+  points += 10;
   console.log(points);
   displayPoints();
-
 }
 
+function displayPoints() {
+  console.log("displayPoints");
+  document.querySelector("#point_count").textContent = points;
 
-function displayPoints () {
-    console.log("displayPoints");
-    document.querySelector("#point_count").textContent = points;
-    
-    if (points >50 ) {
-        levelComplete();
-    }
-
+  if (points > 50) {
+    levelComplete();
+  }
 }
-
 
 function incrementPointsSeagul() {
   points += 5;
   console.log(points);
   displayPoints();
-  
 }
-
 
 function birdGone() {
   console.log("test");
@@ -417,13 +467,11 @@ function kidGone3() {
 }
 
 function gameOver() {
-    console.log("Game over");
-    document.querySelector("#game_over").classList.remove("hidden");
-
+  console.log("Game over");
+  document.querySelector("#game_over").classList.remove("hidden");
 }
 
-function levelComplete () {
-    console.log("Level complete");
-        document.querySelector("#level_complete").classList.remove("hidden");
-
+function levelComplete() {
+  console.log("Level complete");
+  document.querySelector("#level_complete").classList.remove("hidden");
 }

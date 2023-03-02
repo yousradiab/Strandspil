@@ -1,90 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>beach birds</title>
-    <link rel="stylesheet" href="app.css">
-    <link rel="stylesheet" href="animationer.css">
-</head>
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="animationer.css" />
+  </head>
 
-<body>
-
+  <body>
     <div id="screen">
-        <div id="game">
-            <div id="game_background"></div>
-        
-            <div id="game_elements">
-                <div id="bird_container" class="falling" class="zoom_in">
-                    <img id="seagul1" src="img/seagul-removebg-preview.png" alt="måge">
-                </div>
-                <div id="bird_container2" class="falling">
-                    <img id="seagul2" src="img/gladmåge.png" alt="måge">
-                </div>
-                <div id="bird_container3" class="falling">
-                    <img id="seagul3" src="img/angry_seagull-removebg-preview.png" alt="måge">
-                </div>
+      <div id="game">
+        <div id="game_background"></div>
 
-                <div id="birdshit_container" class="falling">
-                    <img id="birdshit" src="img/bird.shit.png" alt="lort">
-                    </div>
+        <div id="game_elements">
+          <div id="bird_container" class="falling" class="zoom_in">
+            <img
+              id="seagul1"
+              src="img/seagul-removebg-preview.png"
+              alt="måge"
+            />
+          </div>
+          <div id="bird_container2" class="falling">
+            <img id="seagul2" src="img/gladmåge.png" alt="måge" />
+          </div>
+          <div id="bird_container3" class="falling">
+            <img
+              id="seagul3"
+              src="img/angry_seagull-removebg-preview.png"
+              alt="måge"
+            />
+          </div>
 
-                    <div id="birdshit_container2" class="falling">
-                    <img id="birdshit2" src="img/bird.shit.png" alt="lort">
-                    </div>
+          <div id="birdshit_container" class="falling">
+            <img id="birdshit" src="img/bird.shit.png" alt="lort" />
+          </div>
 
-                <div id="kid1_container">
-                    <img id="dreng1" src="img/nydreng1.png" alt="dreng">
-                </div>
-                <div id="kid2_container">
-                    <img id="dreng2" src="img/Nydreng2-removebg-preview.png" alt="dreng">
-                    </div>
-                <div id="kid3_container">
-                    <img id="dreng3" src="img/nydreng3.png" alt="dreng">
-                    </div>
-                    </div>
-                </div>
+          <div id="birdshit_container2" class="falling">
+            <img id="birdshit2" src="img/bird.shit.png" alt="lort" />
+          </div>
 
-           
-
-            <div id="game_ui">
-                <div id="heart_container1" class="active_heart pulse">
-                    <img id="heart1" src="img/heart.png">
-                </div>
-                <div id="heart_container2" class="pulse class active_heart ">
-                    <img id="heart2" src="img/heart.png"></div>
-            <div id="heart_container3" class="pulse active_heart">
-                <img id="heart3" src="img/heart.png"></div>
-
-            <div id="timeboard_container" class="glow">
-                <img id="hourglass" src="img/hourglass.png"></div>
-
-           
-            <div id="scoreboard_container" class="glow">
-                <span id="point_count">0</span>
-                <img id="scoreboard" src="/img/points.png"></div>
-
-            </div>
-        
-
-        <div id="start" class="hidden"></div>
-
-        <div id="game_over" class="hidden">
-            <h2>Game Over</h2>
+          <div id="kid1_container">
+            <img id="dreng1" src="img/nydreng1.png" alt="dreng" />
+          </div>
+          <div id="kid2_container">
+            <img
+              id="dreng2"
+              src="img/Nydreng2-removebg-preview.png"
+              alt="dreng"
+            />
+          </div>
+          <div id="kid3_container">
+            <img id="dreng3" src="img/nydreng3.png" alt="dreng" />
+          </div>
         </div>
+        <div id="game_ui">
+          <div id="heart_container1" class="active_heart pulse">
+            <img id="heart1" src="img/heart.png" />
+          </div>
+          <div id="heart_container2" class="pulse active_heart">
+            <img id="heart2" src="img/heart.png" />
+          </div>
+          <div id="heart_container3" class="pulse active_heart">
+            <img id="heart3" src="img/heart.png" />
+          </div>
 
-        <div id="level_complete" class="hidden">
-            <h2>LEVEL COMPLETE</h2>
+          <div id="timeboard_container" class="glow">
+            <img id="hourglass" src="img/hourglass.png" />
+          </div>
+
+          <div id="scoreboard_container" class="glow">
+            <span id="point_count">0</span>
+            <img id="scoreboard" src="/img/points.png" />
+          </div>
         </div>
-        
+      </div>
+      <div id="start">
+        <h2>Strandspil</h2>
+        <p>Collect 50 points before the time runs out</p>
+        <button id="btn_start" class="pulse">Start</button>
+      </div>
+
+      <div id="game_over" class="hidden">
+        <h2>Game Over</h2>
+        <button id="btn_restart" class="pulse">Restart Game</button>
+      </div>
+
+      <div id="level_complete" class="hidden">
+        <h2>LEVEL COMPLETE</h2>
+        <button id="btn_go_to_start" class="pulse">Go to start</button>
+      </div>
     </div>
-         
-
-    </div>
-</div>
-<script src="script.js"></script>
-</body>
-
-
+    <script src="script.js"></script>
+  </body>
 </html>
