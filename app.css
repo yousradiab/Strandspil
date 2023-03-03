@@ -16,7 +16,7 @@ h2 {
 
 #game {
   background-color: blue;
-
+  grid-area: 1 / 1;
   display: grid;
   grid-template-columns: 10% / 10%;
   grid-template-rows: 100%;
@@ -24,7 +24,7 @@ h2 {
 
 #game_background {
   grid-area: 1 / 1;
-  background-image: url(img/background.summer.png);
+  background-image: url(img/nybaggrund.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -94,7 +94,7 @@ h2 {
 #kid1_container {
   z-index: 1;
   position: absolute;
-  /* bottom: 25%; */
+  /* bottom: 10%; */
   right: -15%;
 }
 
@@ -105,7 +105,7 @@ h2 {
 #kid2_container {
   z-index: 1;
   position: absolute;
-  /* bottom: 25%; */
+  /* bottom: 10%; */
   left: 50%;
 }
 
@@ -116,7 +116,7 @@ h2 {
 #kid3_container {
   z-index: 1;
   position: absolute;
-  /* bottom: 25%; */
+  /* bottom: 10%; */
   right: 60%;
 }
 
@@ -124,11 +124,37 @@ h2 {
   width: 45%;
 }
 
+
+
+.position1 {
+    bottom: 5vw;
+}
+
+.position2 {
+    bottom: 40vw;
+}
+
+.position3 {
+    bottom: 200vw;
+}
+/* 
+.position4 {
+    bottom: 30%;
+}
+
+.position5 {
+    bottom: 55%;
+} */
+#game_ui {
+  /* position:absolute; */
+  z-index: 2;
+}
+
 #heart_container1 {
   z-index: 2;
   position: absolute;
-  top: 5%;
-  right: -10%;
+    top: 5%;
+    right: -10%;
 }
 
 #heart_container1 img {
@@ -209,7 +235,7 @@ h2 {
   display: grid;
   justify-content: center;
   align-content: center;
-  background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%);
+  background-image: linear-gradient(150deg, #0352c9 0%, #094e79 100%);
   color: #ffffff;
 }
 

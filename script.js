@@ -12,6 +12,10 @@ function ready() {
     .querySelector("#btn_go_to_start")
     .addEventListener("click", showStartScreen);
   document.querySelector("#btn_restart").addEventListener("click", start);
+
+   document
+     .querySelector("#hourglass")
+     .addEventListener("animationend", timeIsUp);
 }
 
 function showStartScreen() {
@@ -22,17 +26,32 @@ function showStartScreen() {
 }
 
 function start() {
+    restartTimer();
   resetLives();
   resetPoints();
   showGameScreen();
+  startTimer();
   console.log("Javascript kører!");
 
   document.querySelector("#start").classList.add("hidden");
 
-  document.querySelector("#hourglass").classList.add("move_up");
   document.querySelector("#kid1_container").classList.add("moveright");
   document.querySelector("#kid2_container").classList.add("moveright");
   document.querySelector("#kid3_container").classList.add("moveright");
+  document.querySelector("#kid1_container").classList.add("position1");
+  document.querySelector("#kid2_container").classList.add("position2");
+  document.querySelector("#kid3_container").classList.add("position3");
+
+
+     document
+       .querySelector("#kid1_container")
+       .addEventListener("animationiteration", kidRestart);
+     document
+       .querySelector("#kid2_container")
+       .addEventListener("animationiteration", kidRestart);
+     document
+       .querySelector("#kid3_container")
+       .addEventListener("animationiteration", kidRestart);
 
   document
     .querySelector("#bird_container")
@@ -68,32 +87,18 @@ function start() {
     .addEventListener("animationend", gameOver);
 }
 
-// function startGame() {
-//     resetLives();
-//     resetPoints();
-//     showGameScreen();
-//     start();
-// // Start baggrundsmusik
-// ...
-// // start alle animationer
-// ...
-// // Registrer click
-// ...
-// // Registrer når bunden rammes
-// ...
-// }
 
 function resetLives() {
   console.log("reset lives");
   // sæt lives til 3
   lives = 3;
   //nulstil visning af liv (hjerte vi ser)
-  document.querySelector("#heart1").classList.remove("broken_heart");
-  document.querySelector("#heart2").classList.remove("broken_heart");
-  document.querySelector("#heart3").classList.remove("broken_heart");
-  document.querySelector("#heart1").classList.add("active_heart");
-  document.querySelector("#heart2").classList.add("active_heart");
-  document.querySelector("#heart3").classList.add("active_heart");
+  document.querySelector("#heart_container1").classList.remove("broken_heart");
+  document.querySelector("#heart_container2").classList.remove("broken_heart");
+  document.querySelector("#heart_container3").classList.remove("broken_heart");
+  document.querySelector("#heart_container1").classList.add("active_heart");
+  document.querySelector("#heart_container2").classList.add("active_heart");
+  document.querySelector("#heart_container3").classList.add("active_heart");
 }
 
 function showGameScreen() {
@@ -421,6 +426,7 @@ function kidGone() {
   document.querySelector("#kid1_container").offsetWidth;
   document.querySelector("#kid1_container").classList.add("moveright");
 
+  
   // fjern pause
   document.querySelector("#kid1_container").classList.remove("paused");
 
@@ -442,6 +448,7 @@ function kidGone2() {
 
   // fjerner pause
   document.querySelector("#kid2_container").classList.remove("paused");
+
   document
     .querySelector("#kid2_container")
     .addEventListener("click", clickKid2);
@@ -461,14 +468,68 @@ function kidGone3() {
 
   document.querySelector("#kid3_container").classList.remove("paused");
 
+
+  kidRestart.call(this);
+
   document
     .querySelector("#kid3_container")
     .addEventListener("click", clickKid3);
 }
 
+function kidRestart () {
+    console.log("kid restart")
+    const kid = this;
+
+    kid.classList.remove("moveright")
+     kid.offsetWidth;
+     kid.classList.add("moveright");
+
+     // fjern alle positioner
+     kid.classList.remove(
+       "position1",
+       "position2",
+       "position3",
+     );
+
+     // sæt position til en ny klasse
+     const p = Math.ceil(Math.random() * 3);
+     kid.classList.add(`position${p}`);
+}
+
+
 function gameOver() {
   console.log("Game over");
   document.querySelector("#game_over").classList.remove("hidden");
+}
+
+
+function startTimer() {
+  // Sæt timer-animationen (shrink) i gang ved at tilføje klassen shrink til time_sprite
+  document.querySelector("#hourglass").classList.add("shrink");
+
+  // Tilføj en eventlistener som lytter efter at animationen er færdig (animationend) og kalder funktionen timeIsUp
+  document.querySelector("#hourglass").addEventListener("animationend", timeIsUp);
+
+}
+
+function timeIsUp() {
+  console.log("Tiden er gået!");
+
+    document
+      .querySelector("#hourglass")
+      .removeEventListener("animationend", timeIsUp);
+
+  if (points >= 50) {
+    levelComplete();
+  } else {
+    gameOver();
+
+  }
+}
+
+function restartTimer() {
+    document.querySelector("#hourglass").classList.remove("shrink");
+    document.querySelector("#hourglass").offsetWidth;
 }
 
 function levelComplete() {
