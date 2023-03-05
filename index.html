@@ -78,12 +78,15 @@
       </div>
       <div id="start">
         <h2>Strandspil</h2>
-        <p>Collect 50 points before the time runs out</p>
+        <p>Få 50 points inden tiden løber ud for at få level complete</p>
+        <p>Ram en måge og få 5 points</p>
+        <p>Ram en lort og få 10 points</p>
+        <p>Du har 3 liv og mister liv, hvis du rammer et barn</p>
         <button id="btn_start" class="pulse">Start</button>
       </div>
 
-      <div id="game_over" class="hidden">
-        <h2>Game Over</h2>
+      <div id="game_over" class="hidden" class="blur_to_gray">
+        <h2>GAME OVER</h2>
         <button id="btn_restart" class="pulse">Restart Game</button>
       </div>
 
@@ -92,6 +95,13 @@
         <button id="btn_go_to_start" class="pulse">Go to start</button>
       </div>
     </div>
+
+    <audio id="point_sound" src="sounds/point_sound.mp3"></audio>
+    <audio id="kid_sound" src="sounds/kid_sound.mp3" ></audio>
+    <audio id="background_sound" src="sounds/background_sound.mp3"></audio>
+    <audio id="levelcomplete_sound" src="sounds/levelcomplete_sound.mp3"></audio>
+    <audio id="gameover_sound" src="sounds/gameover_sound.mp3"></audio>
+
     <script src="script.js"></script>
   </body>
 </html>

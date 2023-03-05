@@ -38,6 +38,7 @@ function showStartScreen() {
 }
 
 function start() {
+  document.querySelector("#background_sound").play()
   restartTimer();
   resetLives();
   resetPoints();
@@ -132,6 +133,7 @@ else if (container === kid1 || container === kid2 || container === kid3) {
 
   if (container === kid1 || container === kid2 || container === kid3) {
     decrementLives();
+
   } else if (
     container === bird1 ||
     container === bird2 ||
@@ -142,6 +144,8 @@ else if (container === kid1 || container === kid2 || container === kid3) {
     incrementPointsShit();
   }
 }
+
+
 function restart() {
   console.log("restart");
   const container = this;
@@ -183,6 +187,7 @@ function incrementPoints() {}
 function displayPoints() {
   console.log("displayPoints");
   document.querySelector("#point_count").textContent = points;
+  document.querySelector("#point_sound").play();
 
   if (points > 50) {
     levelComplete();
@@ -214,14 +219,24 @@ function restartTimer() {
 function levelComplete() {
   console.log("Level complete");
   document.querySelector("#level_complete").classList.remove("hidden");
+  document.querySelector("#background_sound").pause();
+  document.querySelector("#levelcomplete_sound").play();
+
 }
 function gameOver() {
   console.log("Game over");
   document.querySelector("#game_over").classList.remove("hidden");
+    document.querySelector("#background_sound").pause();
+    document.querySelector("#gameover_sound").play();
+    
 }
 function decrementLives() {
   console.log("decrementLives");
   console.log(lives);
+
+  document.querySelector("#kid_sound").play();
+    document.querySelector("#kid_sound").currentTime = 0;
+
 
   if (lives <= 1) {
     gameOver();

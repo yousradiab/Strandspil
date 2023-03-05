@@ -182,34 +182,24 @@
   }
 }
 
-/* .drop {
-  animation-name: drop;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-}
-
-@keyframes drop {
-  0% {
-    transform: translate(0, -300%);
-  }
-  100% {
-    transform: translate(0, 140%);
-  }
-} */
-/* .rotation2 {
-    animation-name: rotation2;
-    animation-duration: 10s;
-    animation-timing-function: linear;
+.blur_to_gray {
+    animation-name: blur_to_gray;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
     animation-iteration-count: infinite;
+    z-index: auto;
 }
 
-@keyframes rotation2 {
+@keyframes blur_to_gray {
     0% {
-        transform: rotate(0deg) translate(-45%);
+        transform: translate(-150%, 0%);
         
-    }  100% {
-        transform: rotate(360deg) translate(-45%);
+    } 50% {
+        transform: translate(150%, 0%) rotate(150deg);
+        filter: grayscale(100%) blur(2px);
         
-    } } */
+    } 100% {
+        transform: translate(-150%, 0%);
+    }
+}

@@ -224,7 +224,7 @@ h2 {
   display: grid;
   justify-content: center;
   align-content: center;
-  background-image: linear-gradient(150deg, #c90303 0%, #790909 100%);
+  background-image: url(img/nybaggrund.jpg);
   color: #ffffff;
 }
 
