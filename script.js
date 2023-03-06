@@ -38,7 +38,8 @@ function showStartScreen() {
 }
 
 function start() {
-  document.querySelector("#background_sound").play()
+  // spil baggrundsmusik
+  document.querySelector("#background_sound").play();
   restartTimer();
   resetLives();
   resetPoints();
@@ -46,19 +47,9 @@ function start() {
   startTimer();
   console.log("Javascript kører!");
 
-  document.querySelector("#start").classList.add("hidden");
+  startAllAnimations();
 
-  bird1.classList.add("falling");
-  bird2.classList.add("falling");
-  bird3.classList.add("falling");
-  shit1.classList.add("falling");
-  shit2.classList.add("falling");
-  kid1.classList.add("moveright");
-  kid2.classList.add("moveright");
-  kid3.classList.add("moveright");
-  kid1.classList.add("position1");
-  kid2.classList.add("position2");
-  kid3.classList.add("position3");
+  document.querySelector("#start").classList.add("hidden");
 
   kid1.addEventListener("animationiteration", restart);
   kid2.addEventListener("animationiteration", restart);
@@ -83,6 +74,56 @@ function start() {
   timeboard.addEventListener("animationend", gameOver);
 }
 
+function stopGame() {
+  bird1.classList.remove("falling");
+  bird2.classList.remove("falling");
+  bird3.classList.remove("falling");
+  shit1.classList.remove("falling");
+  shit2.classList.remove("falling");
+  kid1.classList.remove("moveright");
+  kid2.classList.remove("moveright");
+  kid3.classList.remove("moveright");
+  kid1.classList.remove("position1 postion2 position3");
+  kid2.classList.remove("position2 postion2 position3");
+  kid3.classList.remove("position3 postion2 position3");
+  document.querySelector("#background_sound").pause();
+
+  kid1.removeEventListener("animationiteration", restart);
+  kid2.removeEventListener("animationiteration", restart);
+  kid3.addEventListener("animationiteration", restart);
+
+  bird1.removeEventListener("click", click);
+
+  bird2.removeEventListener("click", click);
+
+  bird3.removeEventListener("click", click);
+
+  shit1.removeEventListener("click", click);
+
+  shit2.removeEventListener("click", click);
+
+  kid1.removeEventListener("click", click);
+
+  kid2.removeEventListener("click", click);
+
+  kid3.removeEventListener("click", click);
+
+  timeboard.removeEventListener("animationend", gameOver);
+}
+function startAllAnimations() {
+  bird1.classList.add("falling");
+  bird2.classList.add("falling");
+  bird3.classList.add("falling");
+  shit1.classList.add("falling");
+  shit2.classList.add("falling");
+  kid1.classList.add("moveright");
+  kid2.classList.add("moveright");
+  kid3.classList.add("moveright");
+  kid1.classList.add("position1");
+  kid2.classList.add("position2");
+  kid3.classList.add("position3");
+}
+
 function resetLives() {
   console.log("reset lives");
   // sæt lives til 3
@@ -94,6 +135,39 @@ function resetLives() {
   heart1.classList.add("active_heart");
   heart2.classList.add("active_heart");
   heart3.classList.add("active_heart");
+}
+
+function click() {
+  let container = this;
+  console.log("Click måge");
+  console.log(this);
+
+  container.removeEventListener("click", click);
+
+  container.classList.add("paused");
+
+  // sæt forsvind-animation
+  if (container === bird1 || container === bird2 || container === bird3) {
+    container.querySelector("img").classList.add("zoom_in");
+  } else if (container === kid1 || container === kid2 || container === kid3) {
+    container.querySelector("img").classList.add("fade_out");
+  } else {
+    container.querySelector("img").classList.add("zoom_out");
+  }
+
+  container.addEventListener("animationend", restart);
+
+  if (container === kid1 || container === kid2 || container === kid3) {
+    decrementLives();
+  } else if (
+    container === bird1 ||
+    container === bird2 ||
+    container === bird3
+  ) {
+    incrementPointsSeagul();
+  } else {
+    incrementPointsShit();
+  }
 }
 
 function showGameScreen() {
@@ -111,40 +185,6 @@ function resetPoints() {
   // nulstil vising af point
   displayPoints();
 }
-function click() {
-  let container = this;
-  console.log("Click måge");
-  console.log(this);
-
-  container.removeEventListener("click", click);
-
-  container.classList.add("paused");
-
-  // sæt forsvind-animation
-  if (container === bird1 || container === bird2 || container === bird3) {
-    container.querySelector("img").classList.add("zoom_in");
-  }
-else if (container === kid1 || container === kid2 || container === kid3) {
-    container.querySelector("img").classList.add("fade_out"); }
-  
-  else { container.querySelector("img").classList.add("zoom_out"); }
-
-  container.addEventListener("animationend", restart);
-
-  if (container === kid1 || container === kid2 || container === kid3) {
-    decrementLives();
-
-  } else if (
-    container === bird1 ||
-    container === bird2 ||
-    container === bird3
-  ) {
-    incrementPointsSeagul();
-  } else {
-    incrementPointsShit();
-  }
-}
-
 
 function restart() {
   console.log("restart");
@@ -183,7 +223,7 @@ function incrementPointsSeagul() {
   console.log(points);
   displayPoints();
 }
-function incrementPoints() {}
+
 function displayPoints() {
   console.log("displayPoints");
   document.querySelector("#point_count").textContent = points;
@@ -192,6 +232,30 @@ function displayPoints() {
   if (points > 50) {
     levelComplete();
   }
+}
+
+function decrementLives() {
+  console.log("decrementLives");
+  console.log(lives);
+
+  document.querySelector("#kid_sound").play();
+  document.querySelector("#kid_sound").currentTime = 0;
+
+  if (lives <= 1) {
+    gameOver();
+  } else {
+    displayDecrementedLives();
+  }
+  lives--;
+}
+function displayDecrementedLives() {
+  console.log("heart + lives");
+  document
+    .querySelector("#heart_container" + lives)
+    .classList.remove("active_heart");
+  document
+    .querySelector("#heart_container" + lives)
+    .classList.add("broken_heart");
 }
 function startTimer() {
   // Sæt timer-animationen (shrink) i gang ved at tilføje klassen shrink til time_sprite
@@ -219,38 +283,15 @@ function restartTimer() {
 function levelComplete() {
   console.log("Level complete");
   document.querySelector("#level_complete").classList.remove("hidden");
-  document.querySelector("#background_sound").pause();
   document.querySelector("#levelcomplete_sound").play();
 
+  stopGame();
 }
 function gameOver() {
   console.log("Game over");
   document.querySelector("#game_over").classList.remove("hidden");
-    document.querySelector("#background_sound").pause();
-    document.querySelector("#gameover_sound").play();
-    
-}
-function decrementLives() {
-  console.log("decrementLives");
-  console.log(lives);
-
-  document.querySelector("#kid_sound").play();
-    document.querySelector("#kid_sound").currentTime = 0;
-
-
-  if (lives <= 1) {
-    gameOver();
-  } else {
-    displayDecrementedLives();
-  }
-  lives--;
-}
-function displayDecrementedLives() {
-  console.log("heart + lives");
-  document
-    .querySelector("#heart_container" + lives)
-    .classList.remove("active_heart");
-  document
-    .querySelector("#heart_container" + lives)
-    .classList.add("broken_heart");
+  document.querySelector("#game_over").classList.add("blur_to_grey");
+  document.querySelector("#background_sound").pause();
+  document.querySelector("#gameover_sound").play();
+  stopGame();
 }

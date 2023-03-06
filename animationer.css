@@ -76,7 +76,7 @@
 
 .glow {
   animation-name: glow;
-  animation-duration: 1s;
+  animation-duration: 5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -124,6 +124,23 @@
     opacity: 0;
   }
 }
+
+.fade_in,#level_complete.fade_in {
+  animation-name: fade_in;
+  animation-duration: 5;
+  animation-timing-function:ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode:forwards;
+}
+
+@keyframes fade_in {
+  0% {
+    filter: brightness(0%);
+  }
+  100% {
+    filter: brightness(-100%);
+  }
+}
 /* .bouncing {
   animation-name: bouncing;
   animation-duration: 1.4s;
@@ -168,6 +185,14 @@
   animation-fill-mode: forwards;
 }
 
+.active_heart {
+  filter: drop-shadow(0 0 2px yellow);
+}
+
+.broken_heart {
+  filter: grayscale(75%) blur(0.5px);
+}
+
 @keyframes zoom_in {
   0% {
     transform: translate(0, 0) scale(1) rotate(0deg);
@@ -182,24 +207,28 @@
   }
 }
 
-.blur_to_gray {
-    animation-name: blur_to_gray;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    z-index: auto;
+.blur_to_grey,#level_complete.blur_to_grey,
+#game_over.blur_to_grey {
+  animation-name: blur_to_grey;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 }
 
-@keyframes blur_to_gray {
-    0% {
-        transform: translate(-150%, 0%);
-        
-    } 50% {
-        transform: translate(150%, 0%) rotate(150deg);
-        filter: grayscale(100%) blur(2px);
-        
-    } 100% {
-        transform: translate(-150%, 0%);
-    }
+@keyframes blur_to_grey {
+  0% {
+    filter: grayscale(0%);
+  }
+  100% {
+    filter: grayscale(100%);
+  }
+}
+
+.hidden,
+#game_over.hidden,
+#level_complete.hidden,
+#game.hidden,
+#start.hidden {
+  display: none;
 }

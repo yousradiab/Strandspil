@@ -94,7 +94,6 @@ h2 {
 #kid1_container {
   z-index: 1;
   position: absolute;
-  /* bottom: 10%; */
   right: -15%;
 }
 
@@ -105,7 +104,6 @@ h2 {
 #kid2_container {
   z-index: 1;
   position: absolute;
-  /* bottom: 10%; */
   left: 50%;
 }
 
@@ -116,15 +114,12 @@ h2 {
 #kid3_container {
   z-index: 1;
   position: absolute;
-  /* bottom: 10%; */
   right: 60%;
 }
 
 #kid3_container img {
   width: 45%;
 }
-
-
 
 .position1 {
     bottom: 5vw;
@@ -137,16 +132,8 @@ h2 {
 .position3 {
     bottom: 200vw;
 }
-/* 
-.position4 {
-    bottom: 30%;
-}
 
-.position5 {
-    bottom: 55%;
-} */
 #game_ui {
-  /* position:absolute; */
   z-index: 2;
 }
 
@@ -182,13 +169,7 @@ h2 {
   width: 15%;
 }
 
-.active_heart {
-  filter: drop-shadow(0 0 2px yellow);
-}
 
-.broken_heart {
-  filter: grayscale(75%) blur(0.5px);
-}
 #timeboard_container img {
   width: 25%;
 }
@@ -200,7 +181,6 @@ h2 {
 }
 
 #scoreboard_container {
-  /* z-index: 2; */
   position: absolute;
   left: 10%;
   display: grid;
@@ -235,14 +215,16 @@ h2 {
   display: grid;
   justify-content: center;
   align-content: center;
-  background-image: linear-gradient(150deg, #0352c9 0%, #094e79 100%);
-  color: #ffffff;
+  background-image: url(img/nybaggrund.jpg);
+  color: #3c1266;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.hidden,
-#game_over.hidden,
-#level_complete.hidden,
-#game.hidden,
-#start.hidden {
-  display: none;
+#level_complete {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: gold;
+
 }
+
+
+
