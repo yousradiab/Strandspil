@@ -40,7 +40,7 @@ function showStartScreen() {
 function start() {
   // spil baggrundsmusik
   document.querySelector("#background_sound").play();
-  document.querySelector("#background_sound").currentTime=0
+  document.querySelector("#background_sound").currentTime = 0;
   restartTimer();
   resetLives();
   resetPoints();
@@ -75,46 +75,6 @@ function start() {
   timeboard.addEventListener("animationend", gameOver);
 }
 
-function stopGame() {
-  console.log ("stop game");
-  bird1.classList.remove("falling");
-  bird2.classList.remove("falling");
-  bird3.classList.remove("falling");
-  shit1.classList.remove("falling");
-  shit2.classList.remove("falling");
-  kid1.classList.remove("moveright");
-  kid2.classList.remove("moveright");
-  kid3.classList.remove("moveright");
-  kid1.classList.remove("position1,postion2,position3");
-  kid2.classList.remove("position2,postion3,position1");
-  kid3.classList.remove("position3,postion2,position1");
-  document.querySelector("#background_sound").pause();
-  document.querySelector("#levelcomplete_sound").pause();
-  document.querySelector("#gameover_sound").pause();
-
-  kid1.removeEventListener("animationiteration", restart);
-  kid2.removeEventListener("animationiteration", restart);
-  kid3.addEventListener("animationiteration", restart);
-
-  bird1.removeEventListener("click", click);
-
-  bird2.removeEventListener("click", click);
-
-  bird3.removeEventListener("click", click);
-
-  shit1.removeEventListener("click", click);
-
-  shit2.removeEventListener("click", click);
-
-  kid1.removeEventListener("click", click);
-
-  kid2.removeEventListener("click", click);
-
-  kid3.removeEventListener("click", click);
-
-  timeboard.removeEventListener("animationend", gameOver);
-  document.querySelector("#levelcomplete_sound").pause();
-}
 function startAllAnimations() {
   bird1.classList.add("falling");
   bird2.classList.add("falling");
@@ -290,8 +250,6 @@ function levelComplete() {
   document.querySelector("#level_complete").classList.remove("hidden");
   document.querySelector("#background_sound").pause();
   document.querySelector("#levelcomplete_sound").play();
-
-  stopGame();
 }
 function gameOver() {
   console.log("Game over");
@@ -300,4 +258,44 @@ function gameOver() {
   document.querySelector("#game_over").classList.add("blur_to_grey");
   document.querySelector("#background_sound").pause();
   document.querySelector("#gameover_sound").play();
+}
+
+function stopGame() {
+  console.log("stop game");
+  bird1.classList.remove("falling");
+  bird2.classList.remove("falling");
+  bird3.classList.remove("falling");
+  shit1.classList.remove("falling");
+  shit2.classList.remove("falling");
+  kid1.classList.remove("moveright");
+  kid2.classList.remove("moveright");
+  kid3.classList.remove("moveright");
+  kid1.classList.remove("position1,postion2,position3");
+  kid2.classList.remove("position2,postion3,position1");
+  kid3.classList.remove("position3,postion2,position1");
+  document.querySelector("#background_sound").pause();
+  document.querySelector("#gameover_sound").pause();
+  document.querySelector("#levelcomplete_sound").pause();
+  kid1.removeEventListener("animationiteration", restart);
+  kid2.removeEventListener("animationiteration", restart);
+  kid3.addEventListener("animationiteration", restart);
+
+  bird1.removeEventListener("click", click);
+
+  bird2.removeEventListener("click", click);
+
+  bird3.removeEventListener("click", click);
+
+  shit1.removeEventListener("click", click);
+
+  shit2.removeEventListener("click", click);
+
+  kid1.removeEventListener("click", click);
+
+  kid2.removeEventListener("click", click);
+
+  kid3.removeEventListener("click", click);
+
+  timeboard.removeEventListener("animationend", gameOver);
+  document.querySelector("#levelcomplete_sound").pause();
 }
