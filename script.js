@@ -40,6 +40,7 @@ function showStartScreen() {
 function start() {
   // spil baggrundsmusik
   document.querySelector("#background_sound").play();
+  document.querySelector("#background_sound").currentTime=0
   restartTimer();
   resetLives();
   resetPoints();
@@ -75,6 +76,7 @@ function start() {
 }
 
 function stopGame() {
+  console.log ("stop game");
   bird1.classList.remove("falling");
   bird2.classList.remove("falling");
   bird3.classList.remove("falling");
@@ -83,10 +85,12 @@ function stopGame() {
   kid1.classList.remove("moveright");
   kid2.classList.remove("moveright");
   kid3.classList.remove("moveright");
-  kid1.classList.remove("position1 postion2 position3");
-  kid2.classList.remove("position2 postion2 position3");
-  kid3.classList.remove("position3 postion2 position3");
+  kid1.classList.remove("position1,postion2,position3");
+  kid2.classList.remove("position2,postion3,position1");
+  kid3.classList.remove("position3,postion2,position1");
   document.querySelector("#background_sound").pause();
+  document.querySelector("#levelcomplete_sound").pause();
+  document.querySelector("#gameover_sound").pause();
 
   kid1.removeEventListener("animationiteration", restart);
   kid2.removeEventListener("animationiteration", restart);
@@ -109,6 +113,7 @@ function stopGame() {
   kid3.removeEventListener("click", click);
 
   timeboard.removeEventListener("animationend", gameOver);
+  document.querySelector("#levelcomplete_sound").pause();
 }
 function startAllAnimations() {
   bird1.classList.add("falling");
@@ -283,15 +288,16 @@ function restartTimer() {
 function levelComplete() {
   console.log("Level complete");
   document.querySelector("#level_complete").classList.remove("hidden");
+  document.querySelector("#background_sound").pause();
   document.querySelector("#levelcomplete_sound").play();
 
   stopGame();
 }
 function gameOver() {
   console.log("Game over");
+  stopGame();
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#game_over").classList.add("blur_to_grey");
   document.querySelector("#background_sound").pause();
   document.querySelector("#gameover_sound").play();
-  stopGame();
 }
