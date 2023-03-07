@@ -251,9 +251,6 @@ function levelComplete() {
   document.querySelector("#level_complete").classList.remove("hidden");
   document.querySelector("#background_sound").pause();
   document.querySelector("#levelcomplete_sound").play();
-    document.querySelector("#gameover_sound").pause();
-
-
 }
 function gameOver() {
   console.log("Game over");
@@ -282,7 +279,7 @@ function stopGame() {
   document.querySelector("#levelcomplete_sound").pause();
   kid1.removeEventListener("animationiteration", restart);
   kid2.removeEventListener("animationiteration", restart);
-  kid3.addEventListener("animationiteration", restart);
+  kid3.removeEventListener("animationiteration", restart);
 
   bird1.removeEventListener("click", click);
 
