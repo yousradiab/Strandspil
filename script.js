@@ -194,7 +194,7 @@ function displayPoints() {
   document.querySelector("#point_count").textContent = points;
   document.querySelector("#point_sound").play();
 
-  if (points > 50) {
+  if (points > 70) {
     levelComplete();
   }
 }
@@ -235,7 +235,7 @@ function timeIsUp() {
 
   hourglass.removeEventListener("animationend", timeIsUp);
 
-  if (points >= 50) {
+  if (points >= 70) {
     levelComplete();
   } else {
     gameOver();
@@ -247,9 +247,13 @@ function restartTimer() {
 }
 function levelComplete() {
   console.log("Level complete");
+  stopGame();
   document.querySelector("#level_complete").classList.remove("hidden");
   document.querySelector("#background_sound").pause();
   document.querySelector("#levelcomplete_sound").play();
+    document.querySelector("#gameover_sound").pause();
+
+
 }
 function gameOver() {
   console.log("Game over");
@@ -297,5 +301,4 @@ function stopGame() {
   kid3.removeEventListener("click", click);
 
   timeboard.removeEventListener("animationend", gameOver);
-  document.querySelector("#levelcomplete_sound").pause();
 }

@@ -17,7 +17,7 @@
 
 .shrink {
   animation-name: shrink_kf;
-  animation-duration: 40s;
+  animation-duration: 20s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
@@ -37,23 +37,6 @@
   }
 }
 
-/* .move_up {
-  animation-name: move_up;
-  animation-duration: 3s;
-  animation-timing-function:linear;
-  animation-iteration-count:1;
-  top:5vw;
-}
-
-@keyframes move_up {
-  0% {
-    transform: translate(1, 100%);
-  }
-
-  100% {
-    transform: translate(0, -100%);
-  }
-} */
 
 .pulse {
   animation-name: pulse;
@@ -127,7 +110,7 @@
 
 .fade_in,#level_complete.fade_in {
   animation-name: fade_in;
-  animation-duration: 5;
+  animation-duration: 3s;
   animation-timing-function:ease-in;
   animation-iteration-count: 1;
   animation-fill-mode:forwards;
@@ -141,22 +124,6 @@
     filter: brightness(-100%);
   }
 }
-/* .bouncing {
-  animation-name: bouncing;
-  animation-duration: 1.4s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-@keyframes bouncing {
-  0% {
-    transform: translate(0, -135%);
-  }
-  100% {
-    transform: translate(0, 140%);
-  }
-} */
 
 .zoom_out {
   animation-name: zoom_out;
@@ -207,10 +174,10 @@
   }
 }
 
-.blur_to_grey,#level_complete.blur_to_grey,
+.blur_to_grey,
 #game_over.blur_to_grey {
   animation-name: blur_to_grey;
-  animation-duration: 5s;
+  animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;

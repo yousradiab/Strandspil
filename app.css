@@ -2,6 +2,7 @@ body {
   margin: 0;
   overflow: hidden;
   background-size: 100% 100%;
+  user-select: none;
 }
 
 h2 {
@@ -216,15 +217,18 @@ h2 {
   justify-content: center;
   align-content: center;
   background-image: url(img/nybaggrund.jpg);
-  color: #3c1266;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
+  color:rgba(224, 23, 33, 0.918);
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
 
 #level_complete {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: gold;
   align-content: center;
 
+}
+
+p {
+  font-size: larger;
 }
 
 
